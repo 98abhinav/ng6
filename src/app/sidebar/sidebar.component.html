@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="" [class.activated]="currentUrl == '/'">Users</a>
+    </li>
+    <li>
+      <a routerLink="posts" [class.activated]="currentUrl == '/posts'">Posts</a>
+    </li>
+    <li>
+      <a routerLink="customers" [class.activated]="currentUrl == '/customers'">Customers</a>
+    </li>
+    <li>
+      <a routerLink="list" [class.activated]="currentUrl == '/list'">List Todos</a>
+    </li>
+  </ul>
+</nav>
+

@@ -1,0 +1,43 @@
+<div class="example-container">
+  <div *ngIf="showSuccessMessage" >Data submitted sucessfully </div>
+  <form [formGroup]="this.customerService.form" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="$key">
+
+    <mat-form-field>
+      <input [ngClass]="{'is.invalid':submitted && formControls.fullName.errors}" matInput formControlName="fullName" placeholder="FullName">
+    </mat-form-field>
+    <mat-error align="start" *ngIf="submitted && formControls.fullName.errors" class="form__error">Full Name Required</mat-error>
+
+    <br>
+    <mat-form-field>
+      <input [ngClass]="{'is.invalid':submitted && formControls.email.errors}" matInput formControlName="email" placeholder="Email">
+    </mat-form-field>
+    <mat-error align="start" *ngIf="submitted && formControls.email.errors.required" class="form__error">Email Address Required</mat-error>
+    <mat-error align="start" *ngIf="submitted && formControls.email.errors.email" class="form__error">Invalid Email Address</mat-error>
+
+    <br>
+    <mat-form-field>
+      <input [ngClass]="{'is.invalid':submitted && formControls.mobile.errors}" matInput formControlName="mobile" placeholder="Mobile">
+    </mat-form-field>
+    <mat-error align="start" *ngIf="submitted && formControls.mobile.errors.required" class="form__error">Phone no Required</mat-error>
+    <mat-error align="start" *ngIf="submitted && formControls.mobile.errors.minlength" class="form__error">Atleast 8 numbers</mat-error>
+
+    <br>
+    <mat-form-field>
+      <input matInput formControlName="location" placeholder="Location">
+    </mat-form-field>
+    <br>
+    <div class="button-row">
+      <div class="form-group">
+        <button mat-stroked-button type="submit" color="primary">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="example-container">
+  <app-customer-list></app-customer-list>
+</div>
+
+
